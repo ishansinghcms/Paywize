@@ -1,0 +1,9 @@
+/node_modules
+/.npm
+*.log
+.env
+.DS_Store
+Thumbs.db
+.vscode/
+*.code-workspace
+/build/Release
