@@ -1,16 +1,6 @@
-const Content = require("../models/contentModel");
+const Content = require("../models/content");
 const { fetchHTML, extractContent } = require("../utils/htmlUtils");
 const { URLS } = require("../constants");
-
-// await hf
-//   .questionAnswering({
-//     model: "deepset/roberta-base-squad2",
-//     inputs: {
-//       question: "When did Lowell die?",
-//       context: content,
-//     },
-//   })
-//   .then((answer) => console.log(answer));
 
 exports.getCrawlerData = async (req, res, next) => {
   try {

@@ -1,4 +1,4 @@
-const Content = require("../models/contentModel");
+const Content = require("../models/content");
 const { HfInference } = require("@huggingface/inference");
 const hf = new HfInference(process.env.ACCESS_TOKEN);
 
