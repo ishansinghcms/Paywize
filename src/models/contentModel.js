@@ -3,9 +3,8 @@ const Schema = mongoose.Schema;
 
 const contentSchema = new Schema({
   url: String,
-  text: String,
-  images: [String],
-  links: [String],
+  content: String,
+  websiteNumber: Number,
 });
 
 const Content = mongoose.model("Content", contentSchema);
