@@ -1,7 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { getAnswer } = require("../controllers/qaController");
+const { postQuestion, getChats } = require("../controllers/qaController");
 
-router.post("/chat", getAnswer);
+router.post("/query", postQuestion);
+router.get("/chats/:email", getChats);
 
 module.exports = router;

@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const chatSchema = new Schema({
   question: { type: String, required: true },
   answer: { type: String, required: true },
+  accuracy: { type: Number, required: true },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",
