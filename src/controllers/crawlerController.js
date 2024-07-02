@@ -4,14 +4,14 @@ const { URLS } = require("../constants");
 
 exports.getCrawlerData = async (req, res, next) => {
   try {
-    const websiteNumber = +req.body.websiteNumber;
+    const websiteNumber = req.params.websiteNumber;
     const existingContent = await Content.findOne({
       websiteNumber: websiteNumber,
     });
     if (existingContent)
       return res.status(200).json({ message: "Website already crawled." });
     const html = await fetchHTML(URLS[websiteNumber]);
-    const text = extractContent(html, websiteNumber);
+    const text = extractContent(html);
     const content = new Content({
       url: URLS[websiteNumber],
       content: text,

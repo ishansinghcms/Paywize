@@ -5,6 +5,7 @@ const chatSchema = new Schema({
   question: { type: String, required: true },
   answer: { type: String, required: true },
   accuracy: { type: Number, required: true },
+  website: { type: Number, required: true },
   user: {
     type: Schema.Types.ObjectId,
     ref: "User",

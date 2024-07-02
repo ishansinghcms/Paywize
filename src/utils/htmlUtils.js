@@ -12,23 +12,20 @@ async function fetchHTML(url) {
   }
 }
 
-function extractContent(html, websiteNumber) {
+function extractContent(html) {
   let $ = cheerio.load(html);
   $("style").remove();
   $("script").remove();
   $("[style]").removeAttr("style");
   let content = "";
-  //selecting specific html elements using css selectors for wikipedia pages
-  const elementsArray = $("div.mw-content-ltr p");
+  //selecting specific html elements using css selectors
+  const elementsArray = $(
+    ".main-section .layout-row:first-child .layout-column:first-child p, .main-section .layout-row:first-child .layout-column:first-child h3, .main-section .layout-row:first-child .layout-column:first-child li"
+  );
   for (element of elementsArray) {
     // excluding CSS and whitespace characters
-    content += $(element).text().trim();
+    content += $(element).text().trim() + " ";
   }
-  // removing [number] patterns
-  content = content.replace(/\[\d+\]/g, "");
-  // removing extra whitespace and newlines
-  content = content.replace(/\s+/g, " ").trim();
-  console.log(content);
   return content;
 }
 

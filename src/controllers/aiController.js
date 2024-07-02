@@ -2,6 +2,7 @@ const Content = require("../models/content");
 const Chat = require("../models/chat");
 const User = require("../models/user");
 const { HfInference } = require("@huggingface/inference");
+const { URLS, LABELS } = require("../constants");
 const hf = new HfInference(process.env.ACCESS_TOKEN);
 
 exports.postQuestion = async (req, res, next) => {
@@ -31,6 +32,7 @@ exports.postQuestion = async (req, res, next) => {
           answer: answerObject.answer,
           accuracy: answerObject.score,
           user: user._id,
+          website: websiteNumber,
         });
         await chat.save();
         return res
@@ -53,4 +55,11 @@ exports.getChats = async (req, res, next) => {
     console.error("Error during retrieving chats:", error);
     return res.status(500).json({ error: "Internal server error." });
   }
+};
+
+exports.getWebsites = async (req, res, next) => {
+  const websites = URLS.map((url, index) => {
+    return { url: url, value: index, label: LABELS[index] };
+  });
+  res.status(200).json(websites);
 };

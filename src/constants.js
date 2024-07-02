@@ -1,14 +1,17 @@
 const URLS = [
-  "https://en.wikipedia.org/wiki/Mercury_(planet)",
-  "https://en.wikipedia.org/wiki/Venus",
-  "https://en.wikipedia.org/wiki/Earth",
-  "https://en.wikipedia.org/wiki/Mars",
-  "https://en.wikipedia.org/wiki/Jupiter",
-  "https://en.wikipedia.org/wiki/Saturn",
-  "https://en.wikipedia.org/wiki/Uranus",
-  "https://en.wikipedia.org/wiki/Neptune",
-  "https://en.wikipedia.org/wiki/Pluto",
-  "https://en.wikipedia.org/wiki/Eris_(dwarf_planet)",
+  "https://www.nhm.ac.uk/discover/factfile-the-sun.html",
+  "https://www.nhm.ac.uk/discover/factfile-the-moon.html",
+  "https://www.nhm.ac.uk/discover/planet-mercury.html",
+  "https://www.nhm.ac.uk/discover/planet-venus.html",
+  "https://www.nhm.ac.uk/discover/planet-mars.html",
 ];
 
-module.exports = { URLS };
+const LABELS = [
+  "Star Sun",
+  "Satellite Moon",
+  "Planet Mercury",
+  "Planet Venus",
+  "Planet Mars",
+];
+
+module.exports = { URLS, LABELS };

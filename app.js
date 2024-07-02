@@ -5,8 +5,9 @@ require("dotenv").config();
 const port = process.env.PORT || 3000;
 const mongodbUrl = process.env.MONGODB_URL;
 const crawlerRoutes = require("./src/routes/crawlerRoutes");
-const qaRoutes = require("./src/routes/qaRoutes");
+const aiRoutes = require("./src/routes/aiRoutes");
 const loginRegisterRoutes = require("./src/routes/loginRegisterRoutes");
+const dashboardRoutes = require("./src/routes/dashboardRoutes");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -20,10 +21,10 @@ app.use((req, res, next) => {
   next();
 });
 
-//dashboard, crawler, question/answer, user register
 app.use("/login-register", loginRegisterRoutes);
 app.use("/crawler", crawlerRoutes);
-app.use("/QA", qaRoutes);
+app.use("/ai", aiRoutes);
+app.use("/dashboard", dashboardRoutes);
 
 mongoose
   .connect(mongodbUrl)
